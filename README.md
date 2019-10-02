@@ -150,8 +150,8 @@ rDNS record for 127.0.0.1: localhost
 
 PORT     STATE SERVICE
 8443/tcp open  https-alt
-| ssl-cert: Subject: commonName=localhost/organizationName=PlanBase Inc./stateOrProvinceName=Massachusetts/countryName=US
-| Issuer: commonName=localhost/organizationName=PlanBase Inc./stateOrProvinceName=Massachusetts/countryName=US
+| ssl-cert: Subject: commonName=classVsJar.organicdesign.org/organizationName=OrganicDesign/stateOrProvinceName=South Carolina/countryName=US
+| Issuer: commonName=classVsJar.organicdesign.org/organizationName=OrganicDesign/stateOrProvinceName=South Carolina/countryName=US
 | Public Key type: rsa
 | Public Key bits: 2048
 | Signature Algorithm: sha256WithRSAEncryption
