@@ -2,7 +2,34 @@
 This is a minimal project for reproducing an issue.
 It has a very simple HTML5 file hard-coded in the Kotlin code.
 
-If I run this webapp the way IntelliJ does, `java -classpath classes/:bunch-of-jar-files... MainClassName` giving the compiled classes directory, then adding all the jar dependencies it works:
+If I run this webapp the way IntelliJ does (giving the compiled classes directory, then adding all the jar dependencies):
+
+```bash
+M2REP=/home/me/.m2/repository
+
+java -classpath \
+target/classes:\
+$M2REP/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:\
+$M2REP/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:\
+$M2REP/org/eclipse/jetty/jetty-server/9.4.20.v20190813/jetty-server-9.4.20.v20190813.jar:\
+$M2REP/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:\
+$M2REP/org/eclipse/jetty/jetty-http/9.4.20.v20190813/jetty-http-9.4.20.v20190813.jar:\
+$M2REP/org/eclipse/jetty/jetty-io/9.4.20.v20190813/jetty-io-9.4.20.v20190813.jar:\
+$M2REP/org/eclipse/jetty/jetty-alpn-conscrypt-server/9.4.20.v20190813/jetty-alpn-conscrypt-server-9.4.20.v20190813.jar:\
+$M2REP/org/conscrypt/conscrypt-openjdk-uber/2.1.0/conscrypt-openjdk-uber-2.1.0.jar:\
+$M2REP/org/eclipse/jetty/jetty-alpn-server/9.4.20.v20190813/jetty-alpn-server-9.4.20.v20190813.jar:\
+$M2REP/org/eclipse/jetty/http2/http2-common/9.4.20.v20190813/http2-common-9.4.20.v20190813.jar:\
+$M2REP/org/eclipse/jetty/http2/http2-hpack/9.4.20.v20190813/http2-hpack-9.4.20.v20190813.jar:\
+$M2REP/org/eclipse/jetty/jetty-util/9.4.20.v20190813/jetty-util-9.4.20.v20190813.jar:\
+$M2REP/org/eclipse/jetty/http2/http2-server/9.4.20.v20190813/http2-server-9.4.20.v20190813.jar:\
+$M2REP/org/slf4j/slf4j-api/1.7.28/slf4j-api-1.7.28.jar:\
+$M2REP/org/jetbrains/kotlin/kotlin-stdlib/1.3.50/kotlin-stdlib-1.3.50.jar:\
+$M2REP/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50.jar:\
+$M2REP/org/jetbrains/annotations/13.0/annotations-13.0.jar \
+org.organicdesign.classVsJar.ClazzVsJarKt
+```
+
+That works:
 ```bash
 $ curl --insecure https://localhost:8443 -D headers.txt
 <!DOCTYPE html>
