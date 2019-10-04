@@ -62,6 +62,14 @@ total 0
 0 headers.txt
 ```
 
+Here's the command to start for remote debugging:
+```bash
+java \
+-Xdebug \
+-Xrunjdwp:server=y,transport=dt_socket,address=9000,suspend=n \
+-jar target/ROOT.jar
+```
+
 Requirements:
  - Java 11.0.4
  - Maven 3.6.0
