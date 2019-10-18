@@ -2,6 +2,24 @@
 This is a minimal project for reproducing jetty HTTP/2 issues.
 It has a very simple HTML5 file hard-coded in the Kotlin code.
 
+## To Build
+Requires:
+* Java (I use openjdk11)
+* Maven
+
+Command:
+```bash
+mvn clean package
+```
+## To Run
+```text
+java -jar target/ROOT.jar
+```
+or to debug javax.net:
+```text
+java -Djavax.net.debug=all -jar target/ROOT.jar
+```
+
 ## Solved Problems:
 1. [Fat jar file doesn't return HTTP responses](PROBLEM1.md)
 
