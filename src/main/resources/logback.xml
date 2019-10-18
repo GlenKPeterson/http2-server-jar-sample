@@ -4,7 +4,7 @@
 			<pattern>%msg%n</pattern>
 		</encoder>
 	</appender>
-	<root level="debug">
+	<root level="info"> <!-- "debug" works too -->
 		<appender-ref ref="STDOUT" />
 	</root>
 </configuration>

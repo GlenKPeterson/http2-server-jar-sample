@@ -90,19 +90,61 @@ fun main(args: Array<String>) {
     sslContextFactory.keyStorePath = keyStorePath
 
     /*
-sudo $JAVA_HOME/bin/keytool -genkey \
+Here are the 4 strong cipher suites for IE11/Win7 (and 8.1):
+TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+
+# Generate self-signed cert
+sudo $JAVA_HOME/bin/keytool \
     -alias jetty \
     -dname "CN=classVsJar.organicdesign.org, OU=Testing, O=OrganicDesign, L=Upstate, ST=South Carolina, C=US" \
+    -genkey \
     -keyalg RSA \
     -keysize 2048 \
     -keystore src/main/resources/keystore \
     -sigalg SHA256withRSA \
     -storetype pkcs12 \
     -validity 1096
+
+# List certs:
+sudo $JAVA_HOME/bin/keytool \
+    -keystore src/main/resources/keystore \
+    -list \
+    -v
+
+# Add a second key pair:
+https://stackoverflow.com/questions/34306362/how-to-create-ecdsa-keys-for-authentication-purposes
+
+sudo $JAVA_HOME/bin/keytool \
+    -alias ec \
+    -dname "CN=classVsJar.organicdesign.org, OU=Testing, O=OrganicDesign, L=Upstate, ST=South Carolina, C=US" \
+    -genkeypair \
+    -keyalg EC \
+    -keysize 256 \
+    -keystore src/main/resources/keystore \
+    -sigalg SHA256withECDSA \
+    -validity 1096
+
      */
     sslContextFactory.setKeyStorePassword("Not3A2Real1Password")
     sslContextFactory.cipherComparator = HTTP2Cipher.COMPARATOR
     sslContextFactory.provider = "Conscrypt"
+
+//    val exPro: MutableList<String> = sslContextFactory.excludeProtocols.toMutableList()
+//    exPro.add("TLSv1.3")
+//    sslContextFactory.setExcludeProtocols(*exPro.toTypedArray())
+//    logger.info("Included CipherSuites:\n ${sslContextFactory.includeCipherSuites.toList()}")
+
+//    sslContextFactory.setIncludeCipherSuites(
+//            "TLS_DHE_RSA_WITH_AES_256_GCM_SHA384",
+//            "TLS_DHE_RSA_WITH_AES_128_GCM_SHA256",
+//
+//            "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
+//            "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"
+//    )
+//    sslContextFactory.cipherComparator = AltCipherComparator
 
     // test TLS with: nmap --script ssl-cert,ssl-enum-ciphers -p 8443 localhost
     // Test with browser: https://localhost:8443/
