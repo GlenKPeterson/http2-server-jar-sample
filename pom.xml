@@ -7,13 +7,13 @@
 		<maven>3.6.2</maven>
 	</prerequisites>
 
-	<groupId>org.organicdesign.classVsJar</groupId>
-	<artifactId>classVsJar</artifactId>
+	<groupId>org.organicdesign.jettyHttp2Sample</groupId>
+	<artifactId>jettyHttp2Sample</artifactId>
 	<version>0.0.1</version>
 
-	<name>Class Vs. Jar</name>
-	<description>Shows error with jar file that works with class</description>
-	<url>classVsJar.organicdesign.org</url>
+	<name>Jetty HTTP/2 Sample</name>
+	<description>Minimal project for diagnosing HTTP/2 and related issues with Jetty and Kotlin</description>
+	<url>https://github.com/GlenKPeterson/jetty-http2-sample</url>
 
 	<build>
 		<defaultGoal>process-classes</defaultGoal>
@@ -29,7 +29,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<classpathPrefix>lib/</classpathPrefix>
-							<mainClass>org.organicdesign.classVsJar.ClazzVsJarKt</mainClass>
+							<mainClass>org.organicdesign.jettyHttp2Sample.JettyHttp2SampleKt</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

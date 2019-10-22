@@ -29,7 +29,7 @@ That leaves us with just two:
 
 When Jetty starts up, it shows support for these ciphers:
 ```text
-Server@16d04d3d[provider=Conscrypt,keyStore=file:///home/gpeterso/Documents/planbase/goalQpc/classVsJar/target/classes/keystore,trustStore=null] - STARTED
+Server@16d04d3d[provider=Conscrypt,keyStore=file:///home/gpeterso/Documents/planbase/goalQpc/jettyHttp2Sample/target/classes/keystore,trustStore=null] - STARTED
 |  |     +> trustAll=false
 |  |     +> Protocol Selections
 |  |     |  +> Enabled size=4
@@ -102,7 +102,7 @@ Nmap done: 1 IP address (1 host up) scanned in 0.22 seconds
     ```bash
    sudo $JAVA_HOME/bin/keytool \
        -alias jetty \
-       -dname "CN=classVsJar.organicdesign.org, OU=Testing, O=OrganicDesign, L=Upstate, ST=South Carolina, C=US" \
+       -dname "CN=jettyHttp2Sample.organicdesign.org, OU=Testing, O=OrganicDesign, L=Upstate, ST=South Carolina, C=US" \
        -genkeypair \
        -keyalg EC \
        -keysize 256 \

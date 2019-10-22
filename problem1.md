@@ -48,7 +48,7 @@ $M2REP/org/slf4j/slf4j-api/1.7.28/slf4j-api-1.7.28.jar:\
 $M2REP/org/jetbrains/kotlin/kotlin-stdlib/1.3.50/kotlin-stdlib-1.3.50.jar:\
 $M2REP/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50.jar:\
 $M2REP/org/jetbrains/annotations/13.0/annotations-13.0.jar \
-org.organicdesign.classVsJar.ClazzVsJarKt
+org.organicdesign.jettyHttp2Sample.JettyHttp2SampleKt
 ```
 
 That works:
@@ -207,8 +207,8 @@ rDNS record for 127.0.0.1: localhost
 
 PORT     STATE SERVICE
 8443/tcp open  https-alt
-| ssl-cert: Subject: commonName=classVsJar.organicdesign.org/organizationName=OrganicDesign/stateOrProvinceName=South Carolina/countryName=US
-| Issuer: commonName=classVsJar.organicdesign.org/organizationName=OrganicDesign/stateOrProvinceName=South Carolina/countryName=US
+| ssl-cert: Subject: commonName=jettyHttp2Sample.organicdesign.org/organizationName=OrganicDesign/stateOrProvinceName=South Carolina/countryName=US
+| Issuer: commonName=jettyHttp2Sample.organicdesign.org/organizationName=OrganicDesign/stateOrProvinceName=South Carolina/countryName=US
 | Public Key type: rsa
 | Public Key bits: 2048
 | Signature Algorithm: sha256WithRSAEncryption

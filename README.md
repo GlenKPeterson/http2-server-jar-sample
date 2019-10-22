@@ -33,7 +33,7 @@ Edit `src/main/resources/logback.xml` and change `<root level="info">` to `<root
 ```bash
 sudo $JAVA_HOME/bin/keytool \
     -alias jetty \
-    -dname "CN=classVsJar.organicdesign.org, OU=Testing, O=OrganicDesign, L=Upstate, ST=South Carolina, C=US" \
+    -dname "CN=jettyHttp2Sample.organicdesign.org, OU=Testing, O=OrganicDesign, L=Upstate, ST=South Carolina, C=US" \
     -genkeypair \
     -keyalg EC \
     -keysize 256 \
@@ -43,12 +43,33 @@ sudo $JAVA_HOME/bin/keytool \
     -validity 1096
 ```
 ### Test TLS/SSL ciphers
-with nmap:
+with curl (this is what success looks like):
+```bash
+$ curl --insecure https://localhost:8443 -D headers.txt
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Test Page</title>
+  </head>
+  <body>
+    <h1>It works!</h1>
+    <p>Working.</p>
+  </body>
+</html>
+
+$ cat headers.txt
+HTTP/2 200
+server: Jetty(9.4.20.v20190813)
+content-type: text/html;charset=utf-8
+```
+
+with nmap (simple cipher test):
 ```bash
 nmap --script ssl-enum-ciphers -p 8443 localhost
 ```
 
-with testssl.sh:
+with testssl.sh (detalied cipher test):
 ```bash
 testssl.sh localhost:8443
 ```

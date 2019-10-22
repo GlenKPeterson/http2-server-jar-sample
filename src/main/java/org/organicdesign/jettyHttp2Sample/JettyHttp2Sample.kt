@@ -1,4 +1,4 @@
-package org.organicdesign.classVsJar
+package org.organicdesign.jettyHttp2Sample
 
 import org.conscrypt.OpenSSLProvider
 import org.eclipse.jetty.alpn.server.ALPNServerConnectionFactory
@@ -24,9 +24,9 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 import javax.servlet.http.HttpServletResponse.SC_OK
 
-private val logger: Logger = LoggerFactory.getLogger(ClazzVsJar::class.java)
+private val logger: Logger = LoggerFactory.getLogger(JettyHttp2Sample::class.java)
 
-object ClazzVsJar : AbstractHandler() {
+object JettyHttp2Sample : AbstractHandler() {
 
     override fun handle(target: String,
                         baseRequest: Request,
@@ -99,7 +99,7 @@ TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 # Generate self-signed cert
 sudo $JAVA_HOME/bin/keytool \
     -alias jetty \
-    -dname "CN=classVsJar.organicdesign.org, OU=Testing, O=OrganicDesign, L=Upstate, ST=South Carolina, C=US" \
+    -dname "CN=jettyHttp2Sample.organicdesign.org, OU=Testing, O=OrganicDesign, L=Upstate, ST=South Carolina, C=US" \
     -genkey \
     -keyalg RSA \
     -keysize 2048 \
@@ -119,7 +119,7 @@ https://stackoverflow.com/questions/34306362/how-to-create-ecdsa-keys-for-authen
 
 sudo $JAVA_HOME/bin/keytool \
     -alias jetty \
-    -dname "CN=classVsJar.organicdesign.org, OU=Testing, O=OrganicDesign, L=Upstate, ST=South Carolina, C=US" \
+    -dname "CN=jettyHttp2Sample.organicdesign.org, OU=Testing, O=OrganicDesign, L=Upstate, ST=South Carolina, C=US" \
     -genkeypair \
     -keyalg EC \
     -keysize 256 \
@@ -184,7 +184,7 @@ sudo $JAVA_HOME/bin/keytool \
 //    server.handler = MemJogLib
     val handlers = HandlerList()
     handlers.addHandler(SecuredRedirectHandler())
-    handlers.addHandler(ClazzVsJar)
+    handlers.addHandler(JettyHttp2Sample)
     server.handler = handlers
 
     server.start()
