@@ -1,4 +1,4 @@
-# Jetty HTTP/2 Sample
+# HTTP/2 Server Jar Sample (in Jetty)
 This is neither approved nor endorsed by the Jetty project, Eclispe Foundation, or similar.
 It's just a minimal project for reproducing and solving my personal jetty HTTP/2 issues.
 It has a very simple HTML5 file hard-coded in the Kotlin code.
