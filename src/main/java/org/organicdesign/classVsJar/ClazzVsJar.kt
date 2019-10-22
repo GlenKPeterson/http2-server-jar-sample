@@ -118,19 +118,19 @@ sudo $JAVA_HOME/bin/keytool \
 https://stackoverflow.com/questions/34306362/how-to-create-ecdsa-keys-for-authentication-purposes
 
 sudo $JAVA_HOME/bin/keytool \
-    -alias ec \
+    -alias jetty \
     -dname "CN=classVsJar.organicdesign.org, OU=Testing, O=OrganicDesign, L=Upstate, ST=South Carolina, C=US" \
     -genkeypair \
     -keyalg EC \
     -keysize 256 \
     -keystore src/main/resources/keystore \
     -sigalg SHA256withECDSA \
+    -storetype pkcs12 \
     -validity 1096
 
      */
     sslContextFactory.setKeyStorePassword("Not3A2Real1Password")
     sslContextFactory.cipherComparator = HTTP2Cipher.COMPARATOR
-    sslContextFactory.provider = "Conscrypt"
 
 //    val exPro: MutableList<String> = sslContextFactory.excludeProtocols.toMutableList()
 //    exPro.add("TLSv1.3")
@@ -160,8 +160,10 @@ sudo $JAVA_HOME/bin/keytool \
     // HTTP/2 Connection Factory
     val h2 = HTTP2ServerConnectionFactory(httpConfig)
 //    NegotiatingServerConnectionFactory.checkProtocolNegotiationAvailable()
+
+    // ALPN tries these protocols in order.  Let it default to http/1.1 because IE11 seems to need that.
     val alpn = ALPNServerConnectionFactory()
-    alpn.defaultProtocol = "h2"
+//    alpn.defaultProtocol = "h2"
 
     // SSL Connection Factory
     val ssl = SslConnectionFactory(sslContextFactory, alpn.protocol)
