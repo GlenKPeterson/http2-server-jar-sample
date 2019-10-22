@@ -1,4 +1,4 @@
-# Jetty HTTP/2 Questions
+# Jetty HTTP/2 Sample
 This is a minimal project for reproducing jetty HTTP/2 issues.
 It has a very simple HTML5 file hard-coded in the Kotlin code.
 
