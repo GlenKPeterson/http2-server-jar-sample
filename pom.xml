@@ -8,12 +8,12 @@
 	</prerequisites>
 
 	<groupId>org.organicdesign.jettyHttp2Sample</groupId>
-	<artifactId>jettyHttp2Sample</artifactId>
+	<artifactId>http2ServerJarSample</artifactId>
 	<version>0.0.1</version>
 
-	<name>Jetty HTTP/2 Sample</name>
-	<description>Minimal project for diagnosing HTTP/2 and related issues with Jetty and Kotlin</description>
-	<url>https://github.com/GlenKPeterson/jetty-http2-sample</url>
+	<name>HTTP/2 Server Jar Sample</name>
+	<description>Minimal project for diagnosing HTTP/2 and related issues with Jetty and Kotlin packaged in a Jar file</description>
+	<url>https://github.com/GlenKPeterson/http2-server-jar-sample</url>
 
 	<build>
 		<defaultGoal>process-classes</defaultGoal>
